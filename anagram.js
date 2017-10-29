@@ -1,31 +1,36 @@
 // Simple algorithm that retrieves
 // total characters to delete from
 // longest anagram of string A and string B
+// a U b <-- 1 <= a | b <= 10000
 
 function getAnagramCharsToDelete(a, b) {
+    if(!a || !b || typeof a !== 'string' || typeof b !== 'string') {
+        return 0;
+    }
+
+    if(a.length > 10000) return 0;
+    if(b.length > 10000) return 0;
+
     // Set B length,
     var bSet = b.split('');
     // Set A length
     var aSet = a.split('');
+
     // Set anagram_set
     var anagram_set = [];
 
-    // Set count
-    var count = 0;
-    console.log('INITIAL SET: ', aSet.concat(bSet));
-    
     // Set total
     var total = bSet.length + aSet.length;
     
     // while count <= a.length
-    while(count <= a.length) {
-        var letter = aSet.indexOf(bSet[count]);
+    for(var i=0; i < aSet.length; i++) {
+        var letter = bSet.indexOf(aSet[i]);
         
         if(letter !== -1) {
-            anagram_set.push(bSet[count]);
+            bSet.splice(letter, 1);
+            anagram_set.push(aSet[i]);
         }
-        
-        count++; // next letter
+
     }
 
     // Get total (totalLength - anagram_set)
@@ -36,7 +41,8 @@ function getAnagramCharsToDelete(a, b) {
     // return total
     return totalToDelete;
 }
-
-var answer = getAnagramCharsToDelete('wolfsx', 'flows');
+var atest = 'flowsiuoiausodiuoiuoiausdoiausodiusodiuasodiuaosid';
+var btest = 'wolfs';
+var answer = getAnagramCharsToDelete(atest, btest);
 
 console.log('TOTAL CHARACTERS TO DELETE: ', answer);
