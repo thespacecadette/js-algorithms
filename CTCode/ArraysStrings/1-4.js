@@ -24,6 +24,6 @@ function isAnagram(word, word2) {
     return setB.length === 0;
 }
 
-var answer = isAnagram('asfftya', 'ftyfsaa');
+var answer = isAnagram('wubbadubbalublub', 'blubdubbaluwubba');
 
 console.log('Answer', answer);
