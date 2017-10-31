@@ -5,7 +5,7 @@ function sll(){
 }
 
 // Operations
-// Insertion, Deletion, Display, Search, Delete
+// Insertion, Delete, Search
 
 // Insertion - Add element to beginning of list
 sll.prototype.insert = function(value) {
@@ -51,7 +51,7 @@ sll.prototype.delete = function(position) {
     }
 
     // Position at first node
-    if(position === 1) {
+    if(position === 0) {
         this.head = currentNode.next;
         deletedNode = currentNode;
         currentNode = null;
