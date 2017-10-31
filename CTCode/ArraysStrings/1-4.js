@@ -1,5 +1,6 @@
 function isAnagram(word, word2) {
     // was thinking of using sort(), but dont wanna cut corners 
+    // Solved by intersecting word 2 at word 1 (Set Theory)
 
     var isAnagram = [];
     var setA = word.split('');
